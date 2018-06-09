@@ -10,15 +10,22 @@ import UIKit
 import AVFoundation
 import Photos
 import Vision
+import CoreLocation
 
-
-class previewCameraViewController: UIViewController {
+class previewCameraViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var locationManager:CLLocationManager!
+    
     
     let cameraController = CameraController()
     
     var image: UIImage?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var imageData: Data?
+    
+    var latitude: Double?
+    var longitude: Double?
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet fileprivate var photoModeButton: UIButton!
@@ -32,6 +39,9 @@ class previewCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        determineCurrentLocation()
+        
 
        
         func styleCaptureButton() {
@@ -57,6 +67,34 @@ class previewCameraViewController: UIViewController {
     }
     
     
+    
+    func determineCurrentLocation(){
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingHeading()
+        }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        print("user latitude = \(userLocation.coordinate.latitude)")
+        print("user longitude = \(userLocation.coordinate.longitude)")
+        self.latitude = userLocation.coordinate.latitude
+        self.longitude = userLocation.coordinate.longitude
+        locationManager.stopUpdatingLocation()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error)")
+
+    }
     
     
     @IBAction func captureImage(_ sender: UIButton) {
@@ -134,6 +172,20 @@ class previewCameraViewController: UIViewController {
                         print("Failed to perform request:", reqErr)
                     }
                 }
+                guard let imageMaster =  self.image else{ return }
+                let data = UIImageJPEGRepresentation(imageMaster, 0.2)
+                self.imageData = data
+                
+                
+                if(self.imageData != nil){
+                    let viewController = self.storyboard!.instantiateViewController(withIdentifier: "additionalDetails") as! additionalDetailsViewController
+                    viewController.imageData = self.imageData
+                    viewController.latitude = self.latitude
+                    viewController.longitude = self.longitude
+                    self.present(viewController, animated: true, completion: nil)
+                }
+                //segue
+                
                 
                 
                 
@@ -149,7 +201,10 @@ class previewCameraViewController: UIViewController {
 //                PHAssetChangeRequest.creationRequestForAsset(from: image!)
 //            }
         }
-    }
+        
+        //byte array implementation
+        
+        
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if(segue.identifier=="imageMaster"){
@@ -172,3 +227,87 @@ class previewCameraViewController: UIViewController {
     */
 
 }
+    func getArrayOfBytesFromImage(imageData:NSData) -> NSMutableArray
+    {
+        
+        // the number of elements:
+//        let count = imageData.length / sizeof(UInt8)
+        let s = MemoryLayout.size(ofValue: UInt8())
+        let count = imageData.length / s
+        
+        // create array of appropriate length:
+        var bytes = [UInt8](repeating: 0, count: count)
+        
+        // copy bytes into array
+        imageData.getBytes(&bytes, length:count * s)
+        
+        var byteArray:NSMutableArray = NSMutableArray()
+        
+//        for (var i = 0; i < count; i++) {
+//            byteArray.addObject(NSNumber(unsignedChar: bytes[i]))
+//        }
+
+        for i in 0..<count {
+            byteArray.add(NSNumber(value: bytes[i]))
+        }
+        return byteArray
+        
+        
+    }
+
+    
+    func resize(_ image: UIImage) -> UIImage {
+        var actualHeight = Float(image.size.height)
+        var actualWidth = Float(image.size.width)
+        let maxHeight: Float = 300.0
+        let maxWidth: Float = 400.0
+        var imgRatio: Float = actualWidth / actualHeight
+        let maxRatio: Float = maxWidth / maxHeight
+        let compressionQuality: Float = 0.5
+        //50 percent compression
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            }
+            else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            }
+            else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+            }
+        }
+        let rect = CGRect(x: 0.0, y: 0.0, width: CGFloat(actualWidth), height: CGFloat(actualHeight))
+        UIGraphicsBeginImageContext(rect.size)
+        image.draw(in: rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        let imageData = UIImageJPEGRepresentation(img!, CGFloat(compressionQuality))
+        
+        UIGraphicsEndImageContext()
+        return UIImage(data: imageData!) ?? UIImage()
+    }
+}
+
+//extension UIImage {
+//    enum JPEGQuality: CGFloat {
+//        case lowest  = 0
+//        case low     = 0.25
+//        case medium  = 0.5
+//        case high    = 0.75
+//        case highest = 1
+//    }
+//
+//    /// Returns the data for the specified image in JPEG format.
+//    /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
+//    /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
+//    func jpeg(_ quality: JPEGQuality) -> Data? {
+//        //return UIImageJPEGRepresentation(self, quality.rawValue)
+//
+//    }
+//}
