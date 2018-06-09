@@ -14,6 +14,7 @@ class previewCameraViewController: UIViewController {
     
     let cameraController = CameraController()
     
+    var image: UIImage?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
 
@@ -56,16 +57,44 @@ class previewCameraViewController: UIViewController {
     
     @IBAction func captureImage(_ sender: UIButton) {
         cameraController.captureImage {(image, error) in
-            guard let image = image else {
-                print(error ?? "Image capture error")
-                return
+            print(">>>>>>>>:")
+            print(image)
+            self.image = image
+            print(self.image)
+            
+            
+            if(self.image != nil){
+//                let vc = imageDisplayViewController()
+//                vc.image_view.image = self.image
+//                print(vc.image_import)
+//                let viewController = self.storyboard!.instantiateViewController(withIdentifier: "imageDisplayVC") as! imageDisplayViewController
+//                self.present(viewController, animated: true, completion: nil)
+                let imageView = UIImageView(image: self.image)
+                imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+                self.view.addSubview(imageView)
+                
+
+            }else{
+                let alertController = UIAlertController(title: "error", message: "not able to perform segue", preferredStyle: .alert)
+                let alert = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alert)
+                self.present(alertController, animated: true, completion: nil)
             }
             
-            try? PHPhotoLibrary.shared().performChangesAndWait {
-                PHAssetChangeRequest.creationRequestForAsset(from: image)
-            }
+//            try? PHPhotoLibrary.shared().performChangesAndWait {
+//                PHAssetChangeRequest.creationRequestForAsset(from: image!)
+//            }
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier=="imageMaster"){
+//            print("master")
+//            print(self.image)
+//            let vc = imageDisplayViewController()
+//            vc.image_import = self.image
+//        }
+//    }
     
 
     /*

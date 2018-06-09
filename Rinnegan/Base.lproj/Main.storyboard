@@ -155,6 +155,36 @@
             </objects>
             <point key="canvasLocation" x="2056.8000000000002" y="-296.40179910044981"/>
         </scene>
+        <!--Image Display View Controller-->
+        <scene sceneID="uhJ-qW-oWK">
+            <objects>
+                <viewController storyboardIdentifier="imageDisplayVC" id="4fS-rw-pSD" customClass="imageDisplayViewController" customModule="Rinnegan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="01J-Tg-jk6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6vl-xL-hTl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QOC-kw-5Mm" firstAttribute="trailing" secondItem="6vl-xL-hTl" secondAttribute="trailing" id="7Im-gU-5Oc"/>
+                            <constraint firstItem="6vl-xL-hTl" firstAttribute="top" secondItem="QOC-kw-5Mm" secondAttribute="top" id="9Wk-0e-pm5"/>
+                            <constraint firstItem="6vl-xL-hTl" firstAttribute="leading" secondItem="QOC-kw-5Mm" secondAttribute="leading" id="9tl-hi-b8v"/>
+                            <constraint firstItem="QOC-kw-5Mm" firstAttribute="bottom" secondItem="6vl-xL-hTl" secondAttribute="bottom" id="Xaf-P1-JSR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QOC-kw-5Mm"/>
+                    </view>
+                    <connections>
+                        <outlet property="image_view" destination="6vl-xL-hTl" id="yU7-sX-uKW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b7F-7c-59r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2834" y="-296"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kSd-r0-Hu1">
             <objects>
