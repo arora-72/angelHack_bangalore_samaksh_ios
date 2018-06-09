@@ -17,6 +17,7 @@
 		1C2DBF7A20CBD76700EEA415 /* previewCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7920CBD76700EEA415 /* previewCameraViewController.swift */; };
 		1C2DBF7C20CBDEC100EEA415 /* cameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7B20CBDEC100EEA415 /* cameraController.swift */; };
 		1C2DBF7E20CBE70500EEA415 /* imageDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7D20CBE70500EEA415 /* imageDisplayViewController.swift */; };
+		1C2DBF8020CBF95300EEA415 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7F20CBF95200EEA415 /* Resnet50.mlmodel */; };
 		5DE5CD46A4C1497AA45B2BA4 /* Pods_Rinnegan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685673200A52EDDD4B49C129 /* Pods_Rinnegan.framework */; };
 		73A51F05C89E4275D5EB8B96 /* Pods_RinneganUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A7746F97A38F2AF3098378 /* Pods_RinneganUITests.framework */; };
 		D218612D93C934638522510A /* Pods_RinneganTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28456DEFE5B63518EC4E579 /* Pods_RinneganTests.framework */; };
@@ -57,6 +58,7 @@
 		1C2DBF7920CBD76700EEA415 /* previewCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = previewCameraViewController.swift; sourceTree = "<group>"; };
 		1C2DBF7B20CBDEC100EEA415 /* cameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraController.swift; sourceTree = "<group>"; };
 		1C2DBF7D20CBE70500EEA415 /* imageDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageDisplayViewController.swift; sourceTree = "<group>"; };
+		1C2DBF7F20CBF95200EEA415 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		2F7126F9422D20F50A777877 /* Pods-RinneganTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganTests/Pods-RinneganTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37CD6A427F8C6F7A5542DAAB /* Pods-RinneganUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganUITests/Pods-RinneganUITests.release.xcconfig"; sourceTree = "<group>"; };
 		685673200A52EDDD4B49C129 /* Pods_Rinnegan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinnegan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				1C2DBF5220CBD08500EEA415 /* Assets.xcassets */,
 				1C2DBF5420CBD08500EEA415 /* LaunchScreen.storyboard */,
 				1C2DBF5720CBD08500EEA415 /* Info.plist */,
+				1C2DBF7F20CBF95200EEA415 /* Resnet50.mlmodel */,
 			);
 			path = Rinnegan;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				1C2DBF4E20CBD08100EEA415 /* ViewController.swift in Sources */,
 				1C2DBF7C20CBDEC100EEA415 /* cameraController.swift in Sources */,
 				1C2DBF4C20CBD08100EEA415 /* AppDelegate.swift in Sources */,
+				1C2DBF8020CBF95300EEA415 /* Resnet50.mlmodel in Sources */,
 				1C2DBF7E20CBE70500EEA415 /* imageDisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import Photos
+import Vision
+
 
 class previewCameraViewController: UIViewController {
     
@@ -51,7 +53,9 @@ class previewCameraViewController: UIViewController {
         styleCaptureButton()
         configureCameraController()
         
+        
     }
+    
     
     
     
@@ -70,8 +74,68 @@ class previewCameraViewController: UIViewController {
 //                let viewController = self.storyboard!.instantiateViewController(withIdentifier: "imageDisplayVC") as! imageDisplayViewController
 //                self.present(viewController, animated: true, completion: nil)
                 let imageView = UIImageView(image: self.image)
-                imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+                imageView.contentMode = .scaleAspectFit
+                let scaledHeight = self.view.frame.width / (self.image?.size.width)! * (self.image?.size.height)!
+                imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: scaledHeight)
                 self.view.addSubview(imageView)
+                
+                let request = VNDetectFaceRectanglesRequest { (req, err) in
+                    
+                    if let err = err {
+                        print("Failed to detect faces:", err)
+                        return
+                    }
+                    
+                    req.results?.forEach({ (res) in
+                        
+                        DispatchQueue.main.async {
+                            guard let faceObservation = res as? VNFaceObservation else { return }
+                            
+                            let x = self.view.frame.width * faceObservation.boundingBox.origin.x
+                            
+                            let height = scaledHeight * faceObservation.boundingBox.height
+                            
+                            let y = scaledHeight * (1 -  faceObservation.boundingBox.origin.y) - height
+                            
+                            let width = self.view.frame.width * faceObservation.boundingBox.width
+                            
+                            
+                            let redView = UIView()
+                            redView.backgroundColor = .red
+                            redView.alpha = 0.4
+                            redView.frame = CGRect(x: x + 50.0, y: y - 50.0 , width: width, height: height)
+//                            self.view.addSubview(redView)
+                            
+                            if(faceObservation.boundingBox != nil){
+                                let alertController = UIAlertController(title: "pritority high", message: "face detected", preferredStyle: .alert)
+                                let alert = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alert)
+                                self.present(alertController, animated: true, completion: nil)
+                                
+                            }else{
+                                let alertController = UIAlertController(title: "priority low", message: "no face detected", preferredStyle: .alert)
+                                let alert = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alert)
+                                self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
+                    })
+                    
+                    
+                }
+                
+                guard let cgImage = self.image?.cgImage else { return }
+                
+                DispatchQueue.global(qos: .background).async {
+                    let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+                    do {
+                        try handler.perform([request])
+                    } catch let reqErr {
+                        print("Failed to perform request:", reqErr)
+                    }
+                }
+                
+                
                 
 
             }else{
