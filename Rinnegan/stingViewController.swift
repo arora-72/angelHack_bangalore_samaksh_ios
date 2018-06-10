@@ -28,6 +28,7 @@ class stingViewController: UIViewController,AgoraRtcEngineDelegate {
         setupLocalVideo()
         joinChannel()
         cancelButton()
+        switchCameraBtn()
     }
 
     func setupLocalVideo(){
@@ -55,6 +56,16 @@ class stingViewController: UIViewController,AgoraRtcEngineDelegate {
         }
     }
     
+    func switchCameraBtn(){
+        let button = UIButton(frame: CGRect(x: 20.0, y: self.view.frame.height - 100.0, width: 50, height: 50))
+        button.setBackgroundImage(UIImage(named: "Photo Camera Icon"), for: .normal)
+        button.addTarget(self, action: #selector(switchCamera(_:)), for: .touchUpInside)
+        self.view.addSubview(button)
+    }
+    
+    @IBAction func switchCamera(_ sender: Any) {
+       agoraKit.switchCamera()
+    }
     
     func cancelButton(){
         let button = UIButton(frame:CGRect(x: self.view.frame.width/2 - 25, y: self.view.frame.height - 100.0, width: 50, height: 50))

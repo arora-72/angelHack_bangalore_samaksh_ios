@@ -260,6 +260,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="batman" translatesAutoresizingMaskIntoConstraints="NO" id="5m3-kO-ize">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The world is not ready for it yet..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-FC-tMM">
                                 <rect key="frame" x="54" y="189" width="245" height="333"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -269,6 +272,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="awC-bZ-ejt" firstAttribute="trailing" secondItem="5m3-kO-ize" secondAttribute="trailing" id="91i-AE-1mj"/>
+                            <constraint firstItem="5m3-kO-ize" firstAttribute="leading" secondItem="awC-bZ-ejt" secondAttribute="leading" id="HX2-gw-cIV"/>
+                            <constraint firstItem="5m3-kO-ize" firstAttribute="top" secondItem="awC-bZ-ejt" secondAttribute="top" id="Iug-8R-1wq"/>
+                            <constraint firstItem="awC-bZ-ejt" firstAttribute="bottom" secondItem="5m3-kO-ize" secondAttribute="bottom" id="Mc9-aG-9Sp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="awC-bZ-ejt"/>
                     </view>
                 </viewController>
@@ -566,5 +575,6 @@
         <image name="Video Camera Icon" width="24" height="24"/>
         <image name="app_ui2" width="375" height="667"/>
         <image name="background" width="360" height="640"/>
+        <image name="batman" width="427" height="640"/>
     </resources>
 </document>
