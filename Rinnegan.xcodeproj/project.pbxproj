@@ -20,6 +20,9 @@
 		1C2DBF8220CC154700EEA415 /* additionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF8120CC154700EEA415 /* additionalDetailsViewController.swift */; };
 		1CF3180020CC717900FA0F38 /* stingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF317FF20CC717900FA0F38 /* stingViewController.swift */; };
 		1CF3180220CC758400FA0F38 /* VideoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3180120CC758400FA0F38 /* VideoSession.swift */; };
+		647995A5C5B437E11E6EECC1 /* Pods_RinneganTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A71905FA578B7326A67A3BC /* Pods_RinneganTests.framework */; };
+		9228A4CFB3641DF191F77D7D /* Pods_RinneganUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF37A423588EC085E990847 /* Pods_RinneganUITests.framework */; };
+		FD4D380525ED3A689AA8A559 /* Pods_Rinnegan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF29D5E95C9F1089908B1856 /* Pods_Rinnegan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +65,12 @@
 		1CF3180120CC758400FA0F38 /* VideoSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSession.swift; sourceTree = "<group>"; };
 		2F7126F9422D20F50A777877 /* Pods-RinneganTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganTests/Pods-RinneganTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37CD6A427F8C6F7A5542DAAB /* Pods-RinneganUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganUITests/Pods-RinneganUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6A71905FA578B7326A67A3BC /* Pods_RinneganTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RinneganTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BF25FD4FD765EBF4BB46B4 /* Pods-Rinnegan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinnegan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rinnegan/Pods-Rinnegan.release.xcconfig"; sourceTree = "<group>"; };
 		B247309E59DC4B125BD109FB /* Pods-RinneganTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganTests/Pods-RinneganTests.release.xcconfig"; sourceTree = "<group>"; };
 		C26E5B3750478C84814A7C0D /* Pods-RinneganUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganUITests/Pods-RinneganUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DBF37A423588EC085E990847 /* Pods_RinneganUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RinneganUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF29D5E95C9F1089908B1856 /* Pods_Rinnegan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinnegan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4D380525ED3A689AA8A559 /* Pods_Rinnegan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647995A5C5B437E11E6EECC1 /* Pods_RinneganTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9228A4CFB3641DF191F77D7D /* Pods_RinneganUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +163,9 @@
 		64E8586E0C0F94FF60165243 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF29D5E95C9F1089908B1856 /* Pods_Rinnegan.framework */,
+				6A71905FA578B7326A67A3BC /* Pods_RinneganTests.framework */,
+				DBF37A423588EC085E990847 /* Pods_RinneganUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -315,10 +327,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rinnegan/Pods-Rinnegan-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

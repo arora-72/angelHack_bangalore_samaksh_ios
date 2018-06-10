@@ -23,7 +23,7 @@ class previewCameraViewController: UIViewController, CLLocationManagerDelegate {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var imageData: Data?
-    
+    var imageDataArray: Array <Any>?
     var latitude: Double?
     var longitude: Double?
 
@@ -173,7 +173,12 @@ class previewCameraViewController: UIViewController, CLLocationManagerDelegate {
                     }
                 }
                 guard let imageMaster =  self.image else{ return }
-                let data = UIImageJPEGRepresentation(imageMaster, 0.2)
+                let data = UIImageJPEGRepresentation(imageMaster, 0.1)
+//                let nsData = NSData(base64Encoded: data, options: .ignoreMetacharacters)
+                let data1: Data = data!
+                let bytes = [UInt8](data1)
+                print(bytes)
+                self.imageDataArray = bytes
                 self.imageData = data
                 
                 
@@ -182,6 +187,7 @@ class previewCameraViewController: UIViewController, CLLocationManagerDelegate {
                     viewController.imageData = self.imageData
                     viewController.latitude = self.latitude
                     viewController.longitude = self.longitude
+                    viewController.imageArray = self.imageDataArray
                     self.present(viewController, animated: true, completion: nil)
                 }
                 //segue

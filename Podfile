@@ -6,7 +6,8 @@ target 'Rinnegan' do
   use_frameworks!
 
   # Pods for Rinnegan
-pod 'Alamofire', '~> 4.7'
+pod 'Alamofire', '~> 4.5'
+pod 'AlamofireImage', '~> 3.3'
 pod 'AgoraRtcEngine_iOS'
   target 'RinneganTests' do
     inherit! :search_paths
