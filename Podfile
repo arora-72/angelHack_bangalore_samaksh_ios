@@ -7,7 +7,7 @@ target 'Rinnegan' do
 
   # Pods for Rinnegan
 pod 'Alamofire', '~> 4.7'
-
+pod 'AgoraRtcEngine_iOS'
   target 'RinneganTests' do
     inherit! :search_paths
     # Pods for testing

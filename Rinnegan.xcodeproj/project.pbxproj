@@ -18,9 +18,8 @@
 		1C2DBF7C20CBDEC100EEA415 /* cameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7B20CBDEC100EEA415 /* cameraController.swift */; };
 		1C2DBF7E20CBE70500EEA415 /* imageDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF7D20CBE70500EEA415 /* imageDisplayViewController.swift */; };
 		1C2DBF8220CC154700EEA415 /* additionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DBF8120CC154700EEA415 /* additionalDetailsViewController.swift */; };
-		5DE5CD46A4C1497AA45B2BA4 /* Pods_Rinnegan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685673200A52EDDD4B49C129 /* Pods_Rinnegan.framework */; };
-		73A51F05C89E4275D5EB8B96 /* Pods_RinneganUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A7746F97A38F2AF3098378 /* Pods_RinneganUITests.framework */; };
-		D218612D93C934638522510A /* Pods_RinneganTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28456DEFE5B63518EC4E579 /* Pods_RinneganTests.framework */; };
+		1CF3180020CC717900FA0F38 /* stingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF317FF20CC717900FA0F38 /* stingViewController.swift */; };
+		1CF3180220CC758400FA0F38 /* VideoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3180120CC758400FA0F38 /* VideoSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,14 +58,13 @@
 		1C2DBF7B20CBDEC100EEA415 /* cameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraController.swift; sourceTree = "<group>"; };
 		1C2DBF7D20CBE70500EEA415 /* imageDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageDisplayViewController.swift; sourceTree = "<group>"; };
 		1C2DBF8120CC154700EEA415 /* additionalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = additionalDetailsViewController.swift; sourceTree = "<group>"; };
+		1CF317FF20CC717900FA0F38 /* stingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stingViewController.swift; sourceTree = "<group>"; };
+		1CF3180120CC758400FA0F38 /* VideoSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSession.swift; sourceTree = "<group>"; };
 		2F7126F9422D20F50A777877 /* Pods-RinneganTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganTests/Pods-RinneganTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37CD6A427F8C6F7A5542DAAB /* Pods-RinneganUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganUITests/Pods-RinneganUITests.release.xcconfig"; sourceTree = "<group>"; };
-		685673200A52EDDD4B49C129 /* Pods_Rinnegan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rinnegan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BF25FD4FD765EBF4BB46B4 /* Pods-Rinnegan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rinnegan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rinnegan/Pods-Rinnegan.release.xcconfig"; sourceTree = "<group>"; };
 		B247309E59DC4B125BD109FB /* Pods-RinneganTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganTests/Pods-RinneganTests.release.xcconfig"; sourceTree = "<group>"; };
 		C26E5B3750478C84814A7C0D /* Pods-RinneganUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RinneganUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RinneganUITests/Pods-RinneganUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F1A7746F97A38F2AF3098378 /* Pods_RinneganUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RinneganUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F28456DEFE5B63518EC4E579 /* Pods_RinneganTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RinneganTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE5CD46A4C1497AA45B2BA4 /* Pods_Rinnegan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D218612D93C934638522510A /* Pods_RinneganTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73A51F05C89E4275D5EB8B96 /* Pods_RinneganUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +121,8 @@
 				1C2DBF4B20CBD08100EEA415 /* AppDelegate.swift */,
 				1C2DBF4D20CBD08100EEA415 /* ViewController.swift */,
 				1C2DBF4F20CBD08100EEA415 /* Main.storyboard */,
+				1CF317FF20CC717900FA0F38 /* stingViewController.swift */,
+				1CF3180120CC758400FA0F38 /* VideoSession.swift */,
 				1C2DBF7B20CBDEC100EEA415 /* cameraController.swift */,
 				1C2DBF7920CBD76700EEA415 /* previewCameraViewController.swift */,
 				1C2DBF8120CC154700EEA415 /* additionalDetailsViewController.swift */,
@@ -157,9 +154,6 @@
 		64E8586E0C0F94FF60165243 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				685673200A52EDDD4B49C129 /* Pods_Rinnegan.framework */,
-				F28456DEFE5B63518EC4E579 /* Pods_RinneganTests.framework */,
-				F1A7746F97A38F2AF3098378 /* Pods_RinneganUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +243,11 @@
 				TargetAttributes = {
 					1C2DBF4720CBD08100EEA415 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1C2DBF5B20CBD08500EEA415 = {
 						CreatedOnToolsVersion = 10.0;
@@ -387,6 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF3180220CC758400FA0F38 /* VideoSession.swift in Sources */,
+				1CF3180020CC717900FA0F38 /* stingViewController.swift in Sources */,
 				1C2DBF7A20CBD76700EEA415 /* previewCameraViewController.swift in Sources */,
 				1C2DBF4E20CBD08100EEA415 /* ViewController.swift in Sources */,
 				1C2DBF7C20CBDEC100EEA415 /* cameraController.swift in Sources */,
@@ -568,6 +569,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 364H92YY8H;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Rinnegan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -588,6 +594,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 364H92YY8H;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Rinnegan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

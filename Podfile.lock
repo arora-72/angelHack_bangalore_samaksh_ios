@@ -1,16 +1,20 @@
 PODS:
+  - AgoraRtcEngine_iOS (2.2.1)
   - Alamofire (4.7.2)
 
 DEPENDENCIES:
+  - AgoraRtcEngine_iOS
   - Alamofire (~> 4.7)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AgoraRtcEngine_iOS
     - Alamofire
 
 SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: 11c250ee1f02602712eae4713523946edfcce723
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
 
-PODFILE CHECKSUM: c423fee4bd29ab6cebce5c30194eef357cecb35e
+PODFILE CHECKSUM: 6ed5f86fa48ade690d9c0de3f60bed515606a254
 
 COCOAPODS: 1.5.3

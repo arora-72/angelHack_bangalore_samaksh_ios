@@ -28,6 +28,8 @@ class additionalDetailsViewController: UIViewController, UITextFieldDelegate {
     var faceDetected: Bool = true
     var primaryDescription: String?
     var imageStringData: String?
+    var imageArray: Array<Any>?
+    var receivedArray: [UInt8] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +41,19 @@ class additionalDetailsViewController: UIViewController, UITextFieldDelegate {
         print(primaryDescription)
         print(longitude)
         print(latitude)
+        print(self.imageData)
         
-        var stringData = String(data: self.imageData!, encoding: String.Encoding.utf8)
-        self.imageStringData = stringData
+        print("><><><><><>")
+        //let nsData = NSData(base64Encoded: self.imageData!, options: .ignoreUnknownCharacters)
+        
+//       self.receivedArray = Array(self.imageData?)
+//            print("<<<<<<<<>>>>>>>>>>>>>>>>")
+////            print(bytes, String(bytes: bytes, encoding: .utf8))
+//        print(self.receivedArray)
+        
+//        let nsData = NSData(base64Encoded: (self.imageData)!, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
+//        print(nsData)
+        
     }
     
     @IBAction func textClicked(_ sender: Any) {
@@ -65,12 +77,14 @@ class additionalDetailsViewController: UIViewController, UITextFieldDelegate {
             "remarks": primaryDescription as AnyObject,
             "longitude": self.longitude as AnyObject,
             "latitude": self.latitude as AnyObject,
-            "photo":  self.imageStringData as AnyObject,
+            "photo":  self.imageArray as AnyObject,
             "faceDetected": self.faceDetected as AnyObject
             
         ]
         Alamofire.request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (response) in
+                print(response.response)
+                print(response.error)
                 print(response.result)
                 self.dismiss(animated: true, completion: nil)
         }
@@ -114,3 +128,5 @@ class additionalDetailsViewController: UIViewController, UITextFieldDelegate {
     */
 
 }
+
+
