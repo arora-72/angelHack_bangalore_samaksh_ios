@@ -79,6 +79,7 @@ class stingViewController: UIViewController,AgoraRtcEngineDelegate {
     @objc func buttonAction(sender: UIButton){
         print("button tapped")
         leaveChannel()
+        self.dismiss(animated: true, completion: nil)
     }
     
     
